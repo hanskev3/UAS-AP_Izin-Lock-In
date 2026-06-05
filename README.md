@@ -2,7 +2,7 @@
 
 Nama Kelompok : Izin Lock In
 
-Nama Anggota : 
+Nama Anggota :  
 -Dustin Marvin John Lumbantobing (251401118)  
 -Hans Kevin Austin Habeahan (251401136)  
 -Agus Selian (211401072)  
