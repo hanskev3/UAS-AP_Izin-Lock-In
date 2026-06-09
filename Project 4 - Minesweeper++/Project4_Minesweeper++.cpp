@@ -19,7 +19,7 @@ private:
     bool   mati;
     bool   menang;
 
-    void cetakRapi(int nilai, int lebar) {
+    void formatAngka(int nilai, int lebar) {
         int digit = 1, sementara = nilai;
         while (sementara >= 10) { digit++; sementara /= 10; }
         for (int i = digit; i < lebar; i++) cout << ' ';
@@ -92,17 +92,17 @@ private:
         cout << "  +==============================+\n";
         cout << "  |  Papan       : " << jumlahBaris << " x " << jumlahKolom << "           |\n";
         cout << "  |  Bom tersisa : ";
-        cetakRapi(totalBom - jumlahTanda, 2);
+        formatAngka(totalBom - jumlahTanda, 2);
         cout << "             |\n";
         cout << "  |  Waktu       : ";
-        cetakRapi(detik, 4);
+        formatAngka(detik, 4);
         cout << " detik       |\n";
         cout << "  +==============================+\n\n";
 
         cout << "      ";
         for (int k = 0; k < jumlahKolom; k++) {
             cout << ' ';
-            cetakRapi(k + 1, 2);
+            formatAngka(k + 1, 2);
         }
         cout << "\n";
 
@@ -111,7 +111,7 @@ private:
         cout << "+\n";
 
         for (int b = 0; b < jumlahBaris; b++) {
-            cetakRapi(b + 1, 4);
+            formatAngka(b + 1, 4);
             cout << " |";
             for (int k = 0; k < jumlahKolom; k++) {
                 char karakter;
