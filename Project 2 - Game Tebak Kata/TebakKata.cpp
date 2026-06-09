@@ -4,28 +4,23 @@
 using namespace std;
 
 int main() {
-    // Variabel Kontrol Utama
     char mainLagi;
     char tebakan;
     string namaPemain;
-    
-    // Variabel Pengaturan Tingkat Kesulitan
+
     int tingkatKesulitan;
     int maxNyawa;
     int pengaliSkor;
     int skorAkhir;
-    
-    // Variabel Status Permainan (Sesi Game)
+
     KataGame sesiGame;
     char tebakanSalah[26];
     int jumlahSalah;
     bool gameSelesai;
     bool menang;
 
-    // 2. PERSIAPAN AWAL PROGRAM (Dijalankan 1x)
     srand(time(0)); 
-
-    // Kosongkan leaderboard di awal game
+    
     for (int i = 0; i < 5; i++) {
         leaderboard[i].nama = "";
         leaderboard[i].skor = 0;
@@ -35,10 +30,7 @@ int main() {
     cout << "Tekan Enter untuk memulai...";
     cin.get();
 
-    // 3. LOOP UTAMA PERMAINAN
     do {
-        // RESET VARIABEL UNTUK RONDE BARU
-        // (Agar sisa data dari game sebelumnya terhapus)
         tingkatKesulitan = 0;
         maxNyawa = 0;
         pengaliSkor = 0;
@@ -59,7 +51,6 @@ int main() {
         cin.clear();
         cin.ignore(10000, '\n');
 
-        // Logika percabangan untuk setingan game
         if (tingkatKesulitan == 1) { 
             maxNyawa = 8; 
             pengaliSkor = 1; 
@@ -78,10 +69,8 @@ int main() {
             pengaliSkor = 1;
         }
 
-        // Panggil fungsi inisialisasi
         initGame(&sesiGame, maxNyawa);
 
-        // Looping selama game belum selesai (Menebak Kata)
         while (gameSelesai == false) {
             tampilkanStatus(&sesiGame, tebakanSalah, jumlahSalah);
 
@@ -97,7 +86,6 @@ int main() {
                 prosesTebakan(&sesiGame, tebakan, tebakanSalah, &jumlahSalah);
             }
 
-            // Cek kondisi Menang / Kalah
             if (sesiGame.statusTebakan == sesiGame.kataAsli) {
                 gameSelesai = true;
                 menang = true;
@@ -108,7 +96,6 @@ int main() {
             }
         }
 
-        // 4. HASIL AKHIR & LEADERBOARD
         bersihkanLayar();
         if (menang == true) {
             skorAkhir = sesiGame.sisaNyawa * 10 * pengaliSkor;
