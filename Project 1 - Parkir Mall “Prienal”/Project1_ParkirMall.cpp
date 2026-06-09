@@ -27,24 +27,6 @@ private:
     }
 
 public:
-    void init() {
-        cout << string(80, '=') << "\n";
-        cout << string(25, '-') << " S E L A M A T   D A T A N G " << string(25, '-') << "\n";
-        cout << string(25, ' ') << "DI PORTAL PARKIR KHUSUS MOBIL\n";
-        cout << string(34, ' ') << "MALL PRIENAL\n";
-        cout << string(80, '=') << "\n\n";
-
-        cout << "Kami senang Anda telah hadir.\n";
-        cout << "Sebelum melanjutkan, silahkan masukkan informasi Anda yang akan bertugas hari ini.\n\n";
-
-        cout << "Masukkan nama : ";
-        getline(cin, namaPetugas);
-
-        cout << "Masukkan ID   : ";
-        getline(cin, idPetugas);
-
-        cout << "\n";
-    }
 
     void showHeader() {
         cout << string(80, '=') << "\n";
@@ -69,7 +51,7 @@ public:
         int sisaKapasitas = MAX_KAPASITAS - daftarMobil.size();
 
         if (jumlah > sisaKapasitas) {
-            cout << "\nMaksimum Kapasitas hanya 20 mobil"
+            cout << "\nMaksimum Kapasitas hanya 20"
                  << sisaKapasitas
                  << " mobil.\n\n";
             return;
@@ -204,7 +186,6 @@ public:
     }
 
     void run() {
-        init();
         showHeader();
 
         while (true) {
@@ -240,10 +221,32 @@ public:
             }
         }
     }
+    ParkingSystem(string nama, string id) {
+        namaPetugas = nama;
+        idPetugas = id;
+    }
 };
 
 int main() {
-    ParkingSystem system;
+    cout << string(80, '=') << "\n";
+    cout << string(25, '-') << " S E L A M A T   D A T A N G " << string(25, '-') << "\n";
+    cout << string(25, ' ') << "DI PORTAL PARKIR KHUSUS MOBIL\n";
+    cout << string(34, ' ') << "MALL PRIENAL\n";
+    cout << string(80, '=') << "\n\n";
+
+    cout << "Kami senang Anda telah hadir.\n";
+    cout << "Sebelum melanjutkan, silahkan masukkan informasi Anda yang akan bertugas hari ini.\n\n";
+
+    string nama, id;
+
+    cout << "Masukkan nama : ";
+    getline(cin, nama);
+
+    cout << "Masukkan ID   : ";
+    getline(cin, id);
+
+    cout << "\n";
+    ParkingSystem system(nama, id);
     system.run();
     return 0;
 }
