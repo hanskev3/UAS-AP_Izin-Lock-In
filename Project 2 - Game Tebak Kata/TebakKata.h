@@ -8,7 +8,6 @@
 
 using namespace std;
 
-//STRUKTUR DATA
 struct KataGame {
     string kataAsli;
     string statusTebakan;
@@ -20,7 +19,6 @@ struct SkorPemain {
     int skor;
 };
 
-// === VARIABEL GLOBAL ===
 string BANK_KATA[15] = {
     "ALGORITMA", "PEMROGRAMAN", "VARIABEL", "POINTER", "STRUKTUR",
     "FUNGSI", "REKURSIF", "KOMPILATOR", "DATABASE", "ENKRIPSI",
@@ -28,8 +26,6 @@ string BANK_KATA[15] = {
 };
 
 SkorPemain leaderboard[5]; 
-
-// === FUNGSI-FUNGSI ===
 
 void bersihkanLayar() {
     system("cls || clear");
@@ -85,7 +81,6 @@ void gunakanHint(KataGame *game) {
 }
 
 void prosesTebakan(KataGame *game, char tebakan, char tebakanSalah[], int *jumlahSalah) {
-    // Deklarasi variabel pencarian di atas
     bool ketemu; 
     ketemu = false;
 
@@ -138,7 +133,7 @@ void updateLeaderboard(string nama, int skor) {
 }
 
 void tampilkanLeaderboard() {
-    // Deklarasi flag data di atas
+    
     int adaData; 
     adaData = 0;
     
